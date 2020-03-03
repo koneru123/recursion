@@ -182,11 +182,33 @@ var reverse = function(string) {
   }
 };
 //console.log(reverse('traf'));
-var input = 'All my base are belong to you.';
-console.log(reverse(input));
+//var input = 'All my base are belong to you.';
+//console.log(reverse(input));
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  // reverse of string === string then palindrome
+  //let revString = reverse(string);
+  //return revString === string ? true : false;
+  string = string.toLowerCase();
+  if(string.length === 1 || string.length === 0) {
+    return true;
+  }
+  if(string[0] === string[string.length - 1]) {
+    return palindrome(string.slice(1, string.length-1));
+  }
+  return false;
+  /* else {
+    string = string.toLowerCase();
+    let revPalindromeString = palindrome(string.substr(1)) + string.charAt(0);
+    //debugger;
+    let revString = reverse(string);
+    return revPalindromeString === revString ? true : false
+  } */
 };
+//console.log(palindrome('motor'));
+//console.log(palindrome('o'))
+//console.log(palindrome('racecar'))
+//console.log(palindrome('sAip puaki v iKaup Pias'));
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.

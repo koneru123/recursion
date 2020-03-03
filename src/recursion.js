@@ -90,8 +90,40 @@ var sumBelow = function(n) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
+/* var range = function(x, y) {
+  let newArr = [];
+  if(x > y) {
+    for(let i = x-1; i > y; i--) {
+      newArr.push(i);
+    }
+  } else {
+    for(let i = x+1; i < y; i++) {
+      newArr.push(i);
+    }
+  }
+  return newArr;
+}; */
+
 var range = function(x, y) {
+  //debugger;
+  if(x === y) {
+    return [];
+  }
+  if(x < y) {
+    //debugger;
+    if(x+1 === y) {
+      return [];
+    }
+    return [x+1].concat(range(x+1, y));
+  } else {
+    //debugger;
+    if(x-1 === y) {
+      return [];
+    }
+    return [x-1].concat(range(x-1, y));
+  }
 };
+//console.log(range(7, 2)); //[6, 5, 4, 3]
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.

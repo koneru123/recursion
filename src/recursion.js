@@ -54,7 +54,7 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-  debugger;
+  //debugger;
   n = Math.abs(n);
   if(n === 0) {
     return true;

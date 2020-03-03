@@ -19,22 +19,74 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  //var total = 0;
+  let arrLen = array.length;
+  if(arrLen === 0) {
+    return 0;
+  }
+  let newArr = array.slice();
+  return newArr.pop() + sum(newArr);
 };
+
+//console.log(sum([1, 2, 3, 4, 5, 6]));
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  if(array.length === 0) {
+    return 0;
+  }
+  let total = 0;
+  let newArr = array.slice();
+  for(let i = 0; i < newArr.length; i++) {
+    if(Array.isArray(newArr[i])) {
+      total += arraySum(newArr[i]);
+    } else {
+      total += newArr[i];
+    }
+  }
+  return total;
 };
+
+//console.log(arraySum([3, [0, [34, [7, [18]]]]]));
+//console.log(arraySum([[1], [2, 3], [[4]], 5]));
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  n = Math.abs(n);
+  if(n === 0) {
+    return true;
+  } else if(n === 1) {
+    return false;
+  }
+  return isEven(n-2);
 };
+//console.log(isEven(48));
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //debugger;
+  if(n === 0 || n === 1 || n === -1) {
+    return 0;
+  }
+  let isNegative = false;
+  if(n < 0) {
+    isNegative = true;
+    n = Math.abs(n);
+  }
+  let total = 0;
+  total = n-1 + sumBelow(n-1);
+  //debugger;
+  if(isNegative) {
+    return -total;
+  } else {
+    return total;
+  }
 };
+//console.log(sumBelow(7));
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]

@@ -174,8 +174,16 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  //debugger;
+  if(string === '') {
+    return '';
+  } else {
+    return reverse(string.substr(1)) + string.charAt(0);
+  }
 };
-
+//console.log(reverse('traf'));
+var input = 'All my base are belong to you.';
+console.log(reverse(input));
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
 };
